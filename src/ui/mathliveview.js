@@ -1,5 +1,6 @@
 import InputView from '@ckeditor/ckeditor5-ui/src/view';
 import 'mathlive';
+import 'mathlive/dist/mathlive-fonts.css';
 import { Template } from '@ckeditor/ckeditor5-ui';
 
 export default class MathLiveView extends InputView {

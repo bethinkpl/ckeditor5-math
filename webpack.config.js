@@ -1,68 +1,81 @@
-const path = require("path");
-const { styles } = require("@ckeditor/ckeditor5-dev-utils");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require( 'path' );
+const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
+const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 module.exports = {
 	// https://webpack.js.org/configuration/entry-context/
-	entry: "./demo/app.js",
+	entry: './demo/app.js',
 
 	// https://webpack.js.org/configuration/output/
 	output: {
-		path: path.resolve(__dirname, "dist"),
-		filename: "bundle.js",
+		path: path.resolve( __dirname, 'dist' ),
+		filename: 'bundle.js'
 	},
 
 	devServer: {
 		disableHostCheck: true,
 		headers: {
-			"Access-Control-Allow-Origin": "*",
+			'Access-Control-Allow-Origin': '*'
 		},
 		historyApiFallback: true,
 		hot: true,
 		inline: true,
-		index: "./demo/index.html",
+		index: './demo/index.html'
 	},
 
 	plugins: [
 		new MiniCssExtractPlugin(),
-		new HtmlWebpackPlugin({
-			template: "./demo/index.html",
-		}),
+		new HtmlWebpackPlugin( {
+			template: './demo/index.html'
+		} )
 	],
 
 	module: {
 		rules: [
 			{
 				test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
-				use: ["raw-loader"],
+				use: [ 'raw-loader' ]
+			},
+			{
+				test: /mathlive\/.+\.css$/,
+				use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+			},
+			{
+				test: /\.woff2$/,
+				loader: "file-loader"
+			},
+			{
+				test: /\.wav$/,
+				include: path.resolve( __dirname, 'node_modules/mathlive/dist/sounds/' ),
+				loader: "file-loader"
 			},
 			{
 				test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					"css-loader",
+					'css-loader',
 					{
-						loader: "postcss-loader",
+						loader: 'postcss-loader',
 						options: {
-							postcssOptions: styles.getPostCssConfig({
+							postcssOptions: styles.getPostCssConfig( {
 								themeImporter: {
 									themePath: require.resolve(
-										"@ckeditor/ckeditor5-theme-lark"
-									),
+										'@ckeditor/ckeditor5-theme-lark'
+									)
 								},
-								minify: true,
-							}),
-						},
-					},
-				],
+								minify: true
+							} )
+						}
+					}
+				]
 			},
 		],
 	},
 
 	// Useful for debugging.
-	devtool: "source-map",
+	devtool: 'source-map',
 
 	// By default webpack logs warnings if the bundle is bigger than 200kb.
-	performance: { hints: false },
+	performance: { hints: false }
 };
