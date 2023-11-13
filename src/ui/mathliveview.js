@@ -1,4 +1,4 @@
-import InputView from '@ckeditor/ckeditor5-ui/src/view';
+import { InputView } from 'ckeditor5/src/ui';
 
 export default class MathLiveView extends InputView {
 	constructor( locale, { options, attributes } ) {
