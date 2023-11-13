@@ -13,14 +13,14 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "ckeditor5": "40.0.0",
     "@ckeditor/ckeditor5-clipboard": "40.0.0",
     "@ckeditor/ckeditor5-core": "40.0.0",
     "@ckeditor/ckeditor5-engine": "40.0.0",
     "@ckeditor/ckeditor5-ui": "40.0.0",
     "@ckeditor/ckeditor5-undo": "40.0.0",
     "@ckeditor/ckeditor5-utils": "40.0.0",
-    "@ckeditor/ckeditor5-widget": "40.0.0"
+    "@ckeditor/ckeditor5-widget": "40.0.0",
+    "ckeditor5": "40.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-autoformat": "40.0.0",
@@ -28,8 +28,10 @@
     "@ckeditor/ckeditor5-block-quote": "40.0.0",
     "@ckeditor/ckeditor5-code-block": "40.0.0",
     "@ckeditor/ckeditor5-core": "40.0.0",
+    "@ckeditor/ckeditor5-dev-tests": "39.2.1",
     "@ckeditor/ckeditor5-dev-translations": "^32.1.2",
     "@ckeditor/ckeditor5-editor-classic": "40.0.0",
+    "@ckeditor/ckeditor5-editor-inline": "40.0.0",
     "@ckeditor/ckeditor5-essentials": "40.0.0",
     "@ckeditor/ckeditor5-heading": "40.0.0",
     "@ckeditor/ckeditor5-image": "40.0.0",
@@ -43,20 +45,18 @@
     "@ckeditor/ckeditor5-table": "40.0.0",
     "@ckeditor/ckeditor5-theme-lark": "40.0.0",
     "@ckeditor/ckeditor5-upload": "40.0.0",
+    "css-loader": "^5.2.7",
     "eslint": "^7.32.0",
     "eslint-config-ckeditor5": "^5.1.1",
-    "http-server": "^14.1.0",
-    "@ckeditor/ckeditor5-dev-tests": "39.2.1",
-    "@ckeditor/ckeditor5-editor-inline": "40.0.0",
-    "css-loader": "^5.2.7",
     "html-webpack-plugin": "^5.3.1",
+    "http-server": "^14.1.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.6",
     "stylelint": "^13.13.1",
     "stylelint-config-ckeditor5": ">=5.1.1"
   },
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=20.0.0",
     "npm": ">=5.7.1"
   },
   "author": "Sauli Anto",
