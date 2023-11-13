@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-math",
-  "version": "35.2.1",
+  "version": "40.0.0",
   "description": "Math feature for CKEditor 5.",
   "keywords": [
     "ckeditor",
@@ -11,45 +11,53 @@
     "ckeditor5-math",
     "katex"
   ],
-  "resolutions": {
-    "postcss-loader": "^4.3.0",
-    "mini-css-extract-plugin": "2.4.2"
-  },
+  "main": "src/index.js",
   "dependencies": {
-    "@ckeditor/ckeditor5-clipboard": "35.2.1",
-    "@ckeditor/ckeditor5-core": "35.2.1",
-    "@ckeditor/ckeditor5-engine": "35.2.1",
+    "ckeditor5": "40.0.0",
+    "@ckeditor/ckeditor5-clipboard": "40.0.0",
+    "@ckeditor/ckeditor5-core": "40.0.0",
+    "@ckeditor/ckeditor5-engine": "40.0.0",
     "@ckeditor/ckeditor5-inspector": "3.0.0",
-    "@ckeditor/ckeditor5-ui": "35.2.1",
-    "@ckeditor/ckeditor5-undo": "35.2.1",
-    "@ckeditor/ckeditor5-utils": "35.2.1",
-    "@ckeditor/ckeditor5-widget": "35.2.1"
+    "@ckeditor/ckeditor5-ui": "40.0.0",
+    "@ckeditor/ckeditor5-undo": "40.0.0",
+    "@ckeditor/ckeditor5-utils": "40.0.0",
+    "@ckeditor/ckeditor5-widget": "40.0.0"
   },
   "devDependencies": {
-    "@ckeditor/ckeditor5-basic-styles": "35.2.1",
-    "@ckeditor/ckeditor5-dev-tests": "31.1.1",
-    "@ckeditor/ckeditor5-editor-classic": "35.2.1",
-    "@ckeditor/ckeditor5-editor-inline": "35.2.1",
-    "@ckeditor/ckeditor5-essentials": "35.2.1",
-    "@ckeditor/ckeditor5-paragraph": "35.2.1",
-    "@ckeditor/ckeditor5-theme-lark": "35.2.1",
+    "@ckeditor/ckeditor5-autoformat": "40.0.0",
+    "@ckeditor/ckeditor5-basic-styles": "40.0.0",
+    "@ckeditor/ckeditor5-block-quote": "40.0.0",
+    "@ckeditor/ckeditor5-code-block": "40.0.0",
+    "@ckeditor/ckeditor5-core": "40.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "40.0.0",
+    "@ckeditor/ckeditor5-essentials": "40.0.0",
+    "@ckeditor/ckeditor5-heading": "40.0.0",
+    "@ckeditor/ckeditor5-image": "40.0.0",
+    "@ckeditor/ckeditor5-indent": "40.0.0",
+    "@ckeditor/ckeditor5-inspector": "4.1.0",
+    "@ckeditor/ckeditor5-link": "40.0.0",
+    "@ckeditor/ckeditor5-list": "40.0.0",
+    "@ckeditor/ckeditor5-media-embed": "40.0.0",
+    "@ckeditor/ckeditor5-package-tools": "^1.1.0",
+    "@ckeditor/ckeditor5-paragraph": "40.0.0",
+    "@ckeditor/ckeditor5-table": "40.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "40.0.0",
+    "@ckeditor/ckeditor5-upload": "40.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-ckeditor5": "^5.1.1",
+    "http-server": "^14.1.0",
+    "@ckeditor/ckeditor5-dev-tests": "39.2.1",
+    "@ckeditor/ckeditor5-editor-inline": "40.0.0",
     "css-loader": "^5.2.7",
-    "eslint": "^7.1.0",
-    "eslint-config-ckeditor5": "^3.1.1",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.6",
-    "mini-css-extract-plugin": "^2.4.2",
-    "raw-loader": "^4.0.1",
-    "stylelint": "^13.5.0",
-    "stylelint-config-ckeditor5": "^2.0.1",
-    "webpack": "^5.58.1",
-    "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^3.11.2"
+    "stylelint": "^13.13.1",
+    "stylelint-config-ckeditor5": ">=5.1.1"
   },
   "engines": {
-    "node": ">=16.14.2",
-    "npm": ">=8.5.0"
+    "node": ">=18.0.0",
+    "npm": ">=5.7.1"
   },
   "author": "Sauli Anto",
   "license": "ISC",
@@ -61,14 +69,20 @@
   "files": [
     "lang",
     "src",
-    "theme"
+    "build",
+    "theme",
+    "ckeditor5-metadata.json",
+    "CHANGELOG.md"
   ],
   "scripts": {
+    "dll:build": "ckeditor5-package-tools dll:build",
+    "dll:serve": "http-server ./ -o sample/dll.html",
     "lint": "eslint --quiet src/**/*.js",
     "lint:fix": "eslint --quiet src/**/*.js --fix",
-    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'",
-    "test": "node node_modules/@ckeditor/ckeditor5-dev-tests/bin/test.js",
-    "start": "node node_modules/.bin/webpack serve --mode development"
+    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css'",
+    "test": "ckeditor5-package-tools test",
+    "prepare": "yarn run dll:build",
+    "start": "ckeditor5-package-tools start"
   },
   "lint-staged": {
     "**/*.js": [

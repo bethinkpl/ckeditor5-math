@@ -1,18 +1,11 @@
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver';
-import ContextualBalloon from '@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon';
-import clickOutsideHandler from '@ckeditor/ckeditor5-ui/src/bindings/clickoutsidehandler';
-import uid from '@ckeditor/ckeditor5-utils/src/uid';
-import global from '@ckeditor/ckeditor5-utils/src/dom/global';
-import { getBalloonPositionData } from './utils';
-
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-import MainFormView from './ui/mainformview';
-
-// Need math commands from there
 import MathEditing from './mathediting';
-
+import MainFormView from './ui/mainformview';
 import mathIcon from '../theme/icons/math.svg';
+import { Plugin } from 'ckeditor5/src/core';
+import { ClickObserver } from 'ckeditor5/src/engine';
+import { ButtonView, ContextualBalloon, clickOutsideHandler } from 'ckeditor5/src/ui';
+import { global, uid } from 'ckeditor5/src/utils';
+import { getBalloonPositionData } from './utils';
 
 const mathKeystroke = 'Ctrl+M';
 const MARGIN_FROM_THE_RIGHT = 10;
@@ -80,7 +73,8 @@ export default class MathUI extends Plugin {
 			!mathConfig.mathLiveSettings.enabled && mathConfig.enablePreview,
 			this._previewUid,
 			mathConfig.previewClassName,
-			mathConfig.popupClassName
+			mathConfig.popupClassName,
+			mathConfig.katexRenderOptions
 		);
 
 		formView.mathInputView.bind( 'value' ).to( mathCommand, 'value' );
@@ -129,7 +123,7 @@ export default class MathUI extends Plugin {
 		} );
 
 		if ( this._balloon.visibleView === this.formView ) {
-			this.formView.mathInputView.select();
+			this.formView.mathInputView.fieldView.element.select();
 		}
 
 		// Show preview element

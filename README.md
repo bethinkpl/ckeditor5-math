@@ -1,4 +1,4 @@
-# CKEditor 5 mathematical feature &middot; [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/isaul32/ckeditor5-math/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/ckeditor5-math.svg?style=flat)](https://www.npmjs.com/package/ckeditor5-math)
+# CKEditor 5 mathematical feature &middot; [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/isaul32/ckeditor5-math/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/@isaul32/ckeditor5-math.svg?style=flat)](https://www.npmjs.com/package/@isaul32/ckeditor5-math)
 
 ckeditor5-math is a TeX-based mathematical plugin for CKEditor 5. You can use it to insert, edit, and view mathematical equations and formulas. This plugin supports [MathJax], [KaTeX] and custom typesetting engines.
 
@@ -60,19 +60,20 @@ If you get duplicated modules error, you have mismatching versions.
 
 Use official classic or inline build as a base:
 
--   [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5-build-classic)
--   [CKEditor 5 inline editor build](https://github.com/ckeditor/ckeditor5-build-inline)
+-   [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-build-classic)
+-   [CKEditor 5 inline editor build](https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-build-inline)
 
 Install plugin with NPM or Yarn
 
-`npm install ckeditor5-math --save-dev`
+`npm install @isaul32/ckeditor5-math --save-dev`
 
-`yarn add ckeditor5-math --dev`
+`yarn add @isaul32/ckeditor5-math --dev`
 
 Add import into ckeditor.js file
 
 ```js
-import Mathematics from 'ckeditor5-math/src/math';
+import Math from '@isaul32/ckeditor5-math/src/math';
+import AutoformatMath from '@isaul32/ckeditor5-math/src/autoformatmath';
 ```
 
 Add it to built-in plugins
@@ -80,7 +81,8 @@ Add it to built-in plugins
 ```js
 InlineEditor.builtinPlugins = [
 	// ...
-	Mathematics
+	Math,
+	AutoformatMath
 ];
 ```
 
@@ -101,6 +103,24 @@ InlineEditor.defaultConfig = {
 
 **Copy theme/ckeditor5-math folder** from [https://github.com/isaul32/ckeditor5/tree/master/packages/ckeditor5-theme-lark](https://github.com/isaul32/ckeditor5/tree/master/packages/ckeditor5-theme-lark) to your lark theme repository
 
+### Using DLL builds
+
+Use the [official DLL build](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/alternative-setups/dll-builds.html) and additionally load the math plugin:
+
+```html
+<script src="path/to/node_modules/@isaul32/ckeditor5-math/build/math.js"></script>
+<script>
+CKEditor5.editorClassic.ClassicEditor
+	.create(editorElement, {
+		plugins: [
+			CKEditor5.math.Math,
+			...
+		],
+		...
+	});
+</script>
+```
+
 ## Configuration & Usage
 
 ### Plugin options
@@ -112,10 +132,12 @@ InlineEditor.defaultConfig = {
 		engine: 'mathjax', // or katex or function. E.g. (equation, element, display) => { ... }
 		lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't exist. After resolving promise, plugin renders equations.
 		outputType: 'script', // or span
+		className: 'math-tex', // class name to use with span output type, change e.g. MathJax processClass (v2) / processHtmlClass (v3) is set
 		forceOutputType: false, // forces output to use outputType
 		enablePreview: true, // Enable preview view
 		previewClassName: [], // Class names to add to previews
-		popupClassName: [] // Class names to add to math popup balloon
+		popupClassName: [], // Class names to add to math popup balloon
+		katexRenderOptions: {}  // KaTeX only options for katex.render(ToString)
 	}
 }
 ```
@@ -134,6 +156,22 @@ InlineEditor.defaultConfig = {
 -   Tested with version **0.12.0**
 
 [<img src="https://katex.org/img/katex-logo-black.svg" width="130" alt="KaTeX">](https://katex.org/)
+
+-   `katexRenderOptions` - pass [options](https://katex.org/docs/options.html).
+
+	```js
+	InlineEditor.defaultConfig = {
+		// ...
+		math: {
+			engine: 'katex'
+			katexRenderOptions: {
+				macros: {
+					"\\neq": "\\mathrel{\\char`≠}",
+				},
+			},
+		}
+	}
+	```
 
 **Custom typesetting**
 
@@ -199,12 +237,28 @@ Add following lines into your build
 
 ```js
 // ...
-import AutoformatMathematics from 'ckeditor5-math/src/autoformatmath';
+import AutoformatMath from '@isaul32/ckeditor5-math/src/autoformatmath';
 
 InlineEditor.builtinPlugins = [
 	// ...
-	AutoformatMathematics
+	AutoformatMath
 ];
+```
+
+or use it with DLL build
+
+```html
+<script src="path/to/node_modules/@isaul32/ckeditor5-math/build/math.js"></script>
+<script>
+CKEditor5.editorInline.InlineEditorEditor
+	.create(editorElement, {
+		plugins: [
+			CKEditor5.math.AutoformatMath,
+			...
+		],
+		...
+	});
+</script>
 ```
 
 ## Preview workaround
@@ -212,6 +266,43 @@ InlineEditor.builtinPlugins = [
 `.ck-reset_all *` css rules from ckeditor5-ui and ckeditor5-theme-lark break rendering in preview mode.
 
 My solution for this is use rendering element outside of CKEditor DOM and place it to right place by using absolute position. Alternative solution could be using iframe, but then typesetting engine's scripts and styles have to copy to child document.
+
+## TypeScript users
+
+ckeditor5-math does not have typings yet. TypeScript builds of CKEditor will see
+this:
+
+```sh
+src/ckeditor.ts:63:18 - error TS7016: Could not find a declaration file for module '@isaul32/ckeditor5-math/src/math'.
+'/path/to/your/project/node_modules/@isaul32/ckeditor5-math/src/math.js' implicitly has an 'any' type.
+
+Try `npm i --save-dev @types/isaul32__ckeditor5-math` if it exists or add a new declaration (.d.ts) file containing
+`declare module '@isaul32/ckeditor5-math/src/math';`
+```
+
+### Workaround for typings
+
+1. Create a `d.ts` declaration file, e.g. `typings/ckeditor5-math.d.ts`
+
+   ```typescript
+   declare module '@isaul32/ckeditor5-math';
+   declare module '@isaul32/ckeditor5-math/src/math';
+   declare module '@isaul32/ckeditor5-math/src/autoformatmath';
+   ```
+2. In your [`tsconfig.json`](https://www.typescriptlang.org/tsconfig)'s
+   root-level [`include`](https://www.typescriptlang.org/tsconfig#include)
+   option, make sure your declaration file is covered, e.g.
+
+   ```json
+   {
+     "extends": "ckeditor5/tsconfig.json",
+     "include": [
+       "src",
+       "typings",
+       "../../typings"
+      ]
+   }
+   ```
 
 ## Mathlive
 You can enable mathlive virtual keyboard by adding to configuration
