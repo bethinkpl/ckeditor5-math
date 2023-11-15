@@ -4,6 +4,240 @@
 
 -   Add latest changes here
 
+## [40.0.0](https://github.com/isaul32/ckeditor5-math/compare/v39.0.2...v40.0.0) (2023-10-13)
+
+-   Update dependencies for CKEditor 40.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v40.0.0/CHANGELOG.md))
+    (#116)
+-   Bump minimum Node.js version to 18+ per CKEditor 40 requirements (#116)
+
+## [39.0.2](https://github.com/isaul32/ckeditor5-math/compare/v39.0.1...v39.0.2) (2023-09-06)
+
+-   Update dependencies for CKEditor 39.0.2 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v39.0.2/CHANGELOG.md))
+    (#115)
+-   Update lint packages (#115):
+
+    -   eslint-config-ckeditor5: ^5.0.1 → ^5.1.1
+    -   stylelint-config-ckeditor5: >=4.1.1 → >=5.1.1
+
+## [39.0.1](https://github.com/isaul32/ckeditor5-math/compare/v39.0.0...v39.0.1) (2023-08-10)
+
+-   Update dependencies for CKEditor 39.0.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v39.0.1/CHANGELOG.md))
+    (#113)
+
+## [39.0.0](https://github.com/isaul32/ckeditor5-math/compare/v38.1.1...v39.0.0) (2023-08-10)
+
+-   Update dependencies for CKEditor 39.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v39.0.0/CHANGELOG.md))
+    (#112)
+
+## [38.1.1](https://github.com/isaul32/ckeditor5-math/compare/v38.1.0...v38.1.1) (2023-07-26)
+
+-   Update dependencies for CKEditor 38.1.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v38.1.1/CHANGELOG.md))
+    (#109)
+
+## [38.1.0](https://github.com/isaul32/ckeditor5-math/compare/v38.0.1...v38.1.0) (2023-07-26)
+
+-   Update dependencies for CKEditor 38.1.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v38.1.0/CHANGELOG.md))
+    (#108)
+
+-   Version updates (#106, #108)
+
+    -   ckeditor5-package-tools: v1.0.0-beta.10 -> v1.1.0
+        ([release
+        notes](https://github.com/ckeditor/ckeditor5-package-generator/blob/v1.1.0/CHANGELOG.md))
+    -   eslint-config-ckeditor5: >=4.1.1 -> ^5.0.1
+        ([release
+        notes](https://github.com/ckeditor/ckeditor5-linters-config/blob/v5.1.0/CHANGELOG.md))
+
+-   README: Note typing workaround for TypeScript builds (#105)
+
+    1.  Create a `d.ts` declaration file, e.g. `typings/ckeditor5-math.d.ts`
+
+        ```typescript
+        declare module '@isaul32/ckeditor5-math';
+        declare module '@isaul32/ckeditor5-math/src/math';
+        declare module '@isaul32/ckeditor5-math/src/autoformatmath';
+        ```
+
+    2.  In your [`tsconfig.json`](https://www.typescriptlang.org/tsconfig)'s
+        root-level [`include`](https://www.typescriptlang.org/tsconfig#include)
+        option, make sure your declaration file is covered, e.g.
+
+        ```json
+        {
+         "extends": "ckeditor5/tsconfig.json",
+         "include": [
+           "src",
+           "typings",
+           "../../typings"
+          ]
+        }
+        ```
+
+## [38.0.1](https://github.com/isaul32/ckeditor5-math/compare/v38.0.0...v38.0.1) (2023-06-20)
+
+-   Update dependencies for CKEditor 38.0.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v38.0.1/CHANGELOG.md))
+
+## [38.0.0](https://github.com/isaul32/ckeditor5-math/compare/v37.1.0...v38.0.0) (2023-06-20)
+
+-   Update dependencies for CKEditor 38.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v38.0.0/CHANGELOG.md))
+
+## [37.1.0](https://github.com/isaul32/ckeditor5-math/compare/v37.0.2...v37.1.0) (2023-04-19)
+
+-   Update dependencies for CKEditor 37.1.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v37.1.0/CHANGELOG.md))
+
+## [37.0.2](https://github.com/isaul32/ckeditor5-math/compare/v37.0.1...v37.0.2) (2023-04-05)
+
+-   Fix loading of ckeditor5-math when no config object is declared in build
+    (#98)
+
+## [37.0.1](https://github.com/isaul32/ckeditor5-math/compare/v37.0.0...v36.0.1) (2023-04-05)
+
+-   Update dependencies for CKEditor 37.0.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v37.0.1/CHANGELOG.md))
+
+## [37.0.0](https://github.com/isaul32/ckeditor5-math/compare/v36.0.6...v37.0.0) (2023-04-05)
+
+-   Update dependencies for CKEditor 37.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v37.0.0/CHANGELOG.md))
+-   Bump minimum node version to v16 (per CKEditor v37's requirements)
+-   Add a .nvmrc for nvm users
+
+## [36.0.7](https://github.com/isaul32/ckeditor5-math/compare/v36.0.6...v36.0.7) (2023-04-05)
+
+-   Fix loading of ckeditor5-math when no config object is declared in build
+    (#97)
+
+## [36.0.6](https://github.com/isaul32/ckeditor5-math/compare/v36.0.5...v36.0.6) (2023-04-05)
+
+-   :arrow_up: CKEditor package tools: 1.0.0-beta.8 -> beta.10
+
+    See also: https://github.com/ckeditor/ckeditor5-package-generator/blob/v1.0.0-beta.10/CHANGELOG.md
+
+## [36.0.5](https://github.com/isaul32/ckeditor5-math/compare/v36.0.4...v36.0.5) (2023-04-03)
+
+-   Update docs for new package name (#91)
+
+    -   Old: ckeditor5-math
+    -   New: @isaul32/ckeditor5-math
+
+-   New feature: Make className of span element configurable (#82, thank you
+    @DanielKulbe)
+
+## [36.0.4](https://github.com/isaul32/ckeditor5-math/compare/v36.0.3...v36.0.4) (2023-03-13)
+
+-   New package name
+
+    -   Old: ckeditor5-math
+    -   New: @isaul32/ckeditor5-math
+
+## [36.0.3](https://github.com/isaul32/ckeditor5-math/compare/v36.0.2...v36.0.3) (2023-03-13)
+
+-   Move to a DLL compatible plugin (#83)
+
+    Credit: @DanielKulbe
+
+## [36.0.2](https://github.com/isaul32/ckeditor5-math/compare/v36.0.1...v36.0.2) (2023-02-14)
+
+-   Fix `previewClassName` (#86)
+
+## [36.0.1](https://github.com/isaul32/ckeditor5-math/compare/v36.0.0...v36.0.1) (2023-01-26)
+
+-   Update dependencies for CKEditor 36.0.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v36.0.1/CHANGELOG.md))
+
+## [36.0.0](https://github.com/isaul32/ckeditor5-math/compare/v35.4.0...v36.0.0) (2023-01-26)
+
+-   Update dependencies for CKEditor 36.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v36.0.0/CHANGELOG.md))
+
+## [35.4.0](https://github.com/isaul32/ckeditor5-math/compare/v35.3.2...v35.4.0) (2022-12-13)
+
+-   Update dependencies for CKEditor 35.4.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.4.0/CHANGELOG.md))
+
+## [35.3.2](https://github.com/isaul32/ckeditor5-math/compare/v35.3.1...v35.3.2) (2022-11-23)
+
+-   Update dependencies for CKEditor 35.3.2 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.3.2/CHANGELOG.md))
+
+## [35.3.1](https://github.com/isaul32/ckeditor5-math/compare/v35.3.0...v35.3.1) (2022-11-15)
+
+-   Update dependencies for CKEditor 35.3.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.3.1/CHANGELOG.md))
+
+## [35.3.0](https://github.com/isaul32/ckeditor5-math/compare/v35.2.1...v35.3.0) (2022-11-03)
+
+-   Update dependencies for CKEditor 35.3.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.3.0/CHANGELOG.md))
+
+## [35.2.1](https://github.com/isaul32/ckeditor5-math/compare/v35.2.0...v35.2.1) (2022-10-13)
+
+-   Update dependencies for CKEditor 35.2.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.2.1/CHANGELOG.md))
+
+## [35.2.0](https://github.com/isaul32/ckeditor5-math/compare/v35.1.0...v35.2.0) (2022-10-13)
+
+-   Update dependencies for CKEditor 35.2.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.2.0/CHANGELOG.md))
+
+## [35.1.0](https://github.com/isaul32/ckeditor5-math/compare/v35.0.1...v35.1.0) (2022-09-28)
+
+-   Update dependencies for CKEditor 35.1.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.1.0/CHANGELOG.md))
+
+## [35.0.1](https://github.com/isaul32/ckeditor5-math/compare/v35.0.0...v35.0.1) (2022-09-28)
+
+-   Update dependencies for CKEditor 35.0.1 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.0.1/CHANGELOG.md))
+
+## [35.0.0](https://github.com/isaul32/ckeditor5-math/compare/v34.2.0...v35.0.0) (2022-09-28)
+
+-   Update dependencies for CKEditor 35.0.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v35.0.0/CHANGELOG.md))
+
+## [34.2.0](https://github.com/isaul32/ckeditor5-math/compare/v34.1.1...v34.2.0) (2022-09-28)
+
+-   Update dependencies for CKEditor 34.2.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v34.2.0/CHANGELOG.md))
+
+## [34.1.1](https://github.com/isaul32/ckeditor5-math/compare/v34.1.0...v34.1.1) (2022-08-03)
+
+-   New configuration setting, `katexRenderOptions` (optional) - for KaTeX engines. Accepts object of `katex.render()` / `katex.renderToString()` [options](https://katex.org/docs/options.html):
+
+    ```js
+    InlineEditor.defaultConfig = {
+    	// ...
+    	math: {
+    		engine: 'katex'
+    		katexRenderOptions: {
+    			macros: {
+    				"\\neq": "\\mathrel{\\char`≠}",
+    			},
+    		},
+    	}
+    }
+    ```
+
+    via PR [#64](https://github.com/isaul32/ckeditor5-math/pull/64) by [Tony
+    Narlock](https://www.git-pull.com).
+
+## [34.1.0](https://github.com/isaul32/ckeditor5-math/compare/v34.0.0...v34.1.0) (2022-06-21)
+
+-   Update dependencies for CKEditor 34.1.0 ([Release
+    notes](https://github.com/ckeditor/ckeditor5/blob/v34.1.0/CHANGELOG.md))
+-   Changelog:
+    -   Begin adding dates to releases
+    -   Remove _(current)_, which was being applied to old releases incorrectly up to last release
+
 ## [34.0.0](https://github.com/isaul32/ckeditor5-math/compare/v33.0.0...v34.0.0) (2022-05-12)
 
 -   Update dependencies for CKEditor 34.0.0 ([Release
