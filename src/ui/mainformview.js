@@ -1,7 +1,7 @@
 import { icons } from 'ckeditor5/src/core';
 import {
-	ButtonView, createLabeledInputText, FocusCycler, LabelView, LabeledFieldView,
-	submitHandler, SwitchButtonView, View, ViewCollection
+	ButtonView, FocusCycler, LabelView, LabeledFieldView,
+	submitHandler, SwitchButtonView, View, ViewCollection, TextareaView
 } from 'ckeditor5/src/ui';
 import { FocusTracker, KeystrokeHandler } from 'ckeditor5/src/utils';
 import { extractDelimiters, hasDelimiters } from '../utils';
@@ -11,6 +11,24 @@ import MathLiveView from './mathliveview';
 import '../../theme/mathform.css';
 
 const { check: checkIcon, cancel: cancelIcon } = icons;
+
+const createLabeledTextarea = ( labeledFieldView, viewUid, statusUid ) => {
+	const textareaView = new TextareaView( labeledFieldView.locale );
+	textareaView.set( {
+		id: viewUid,
+		ariaDescribedById: statusUid,
+		resize: 'both'
+	} );
+	textareaView.bind( 'isReadOnly' ).to( labeledFieldView, 'isEnabled', value => !value );
+	textareaView.bind( 'hasError' ).to( labeledFieldView, 'errorText', value => !!value );
+	textareaView.on( 'input', () => {
+		// UX: Make the error text disappear and disable the error indicator as the user
+		// starts fixing the errors.
+		labeledFieldView.errorText = null;
+	} );
+	labeledFieldView.bind( 'isEmpty', 'isFocused', 'placeholder' ).to( textareaView );
+	return textareaView;
+};
 
 export default class MainFormView extends View {
 	constructor(
@@ -166,7 +184,7 @@ export default class MainFormView extends View {
 		const t = this.locale.t;
 
 		// Create equation input
-		const mathInput = new LabeledFieldView( this.locale, createLabeledInputText );
+		const mathInput = new LabeledFieldView( this.locale, createLabeledTextarea );
 		const fieldView = mathInput.fieldView;
 		mathInput.infoText = t( 'Insert equation in TeX format.' );
 
