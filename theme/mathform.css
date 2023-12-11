@@ -37,6 +37,7 @@
 
 		& .ck-input {
 			width: 100%;
+			/* without min-with, balloon-panel don't respect with of textarea */
 			min-width: 0;
 		}
 	}
