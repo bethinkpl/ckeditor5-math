@@ -12,6 +12,11 @@ import '../../theme/mathform.css';
 
 const { check: checkIcon, cancel: cancelIcon } = icons;
 
+/*
+ * copy from
+ * https://github.com/ckeditor/ckeditor5/blob/45e28c6030d590d142dbf319b36d9413a6ad6432/packages/ckeditor5-ui/src/labeledfield/utils.ts#L145
+ * but enable resize
+ */
 const createLabeledTextarea = ( labeledFieldView, viewUid, statusUid ) => {
 	const textareaView = new TextareaView( labeledFieldView.locale );
 	textareaView.set( {
