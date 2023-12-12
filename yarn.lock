@@ -547,14 +547,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@es-joy/jsdoccomment@^0.36.1":
-  version "0.36.1"
-  resolved "https://registry.yarnpkg.com/@es-joy/jsdoccomment/-/jsdoccomment-0.36.1.tgz#c37db40da36e4b848da5fd427a74bae3b004a30f"
-  integrity sha512-922xqFsTpHs6D0BUiG4toiyPOMc8/jafnWKxz1KWgS4XzKPy2qXf1Pe6UFuNSCQqt6tOuhAWXBNuuyUhJmw9Vg==
+"@es-joy/jsdoccomment@^0.40.1":
+  version "0.40.1"
+  resolved "https://registry.yarnpkg.com/@es-joy/jsdoccomment/-/jsdoccomment-0.40.1.tgz#13acd77fb372ed1c83b7355edd865a3b370c9ec4"
+  integrity sha512-YORCdZSusAlBrFpZ77pJjc5r1bQs5caPWtAu+WWmiSo+8XaUzseapVrfAtiRFbQWnrBxxLLEwF6f6ZG/UgCQCg==
   dependencies:
-    comment-parser "1.3.1"
-    esquery "^1.4.0"
-    jsdoc-type-pratt-parser "~3.1.0"
+    comment-parser "1.4.0"
+    esquery "^1.5.0"
+    jsdoc-type-pratt-parser "~4.0.0"
 
 "@esbuild/android-arm64@0.17.19":
   version "0.17.19"
@@ -2149,10 +2149,10 @@ commander@^7.2.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-comment-parser@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-1.3.1.tgz#3d7ea3adaf9345594aedee6563f422348f165c1b"
-  integrity sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==
+comment-parser@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-1.4.0.tgz#0f8c560f59698193854f12884c20c0e39a26d32c"
+  integrity sha512-QLyTNiZ2KDOibvFPlZ6ZngVsZ/0gYnE6uTXi5aoDg8ed3AkJAz4sEje3Y8a29hQ1s6A99MZXe47fLAXQ1rTqaw==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -2875,23 +2875,23 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-ckeditor5@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-ckeditor5/-/eslint-config-ckeditor5-5.1.1.tgz#a1e4797048eda648cc911a99a447ea73a39009d9"
-  integrity sha512-5sgZuMFBKwo1Ac05qwnw1rw4wZBNss6KTpf6raV6XO97dUmTbwsuP2ure7+TxiSKV6ir727Abbz5I4gozC+/YQ==
+eslint-config-ckeditor5@^5.1.2:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/eslint-config-ckeditor5/-/eslint-config-ckeditor5-5.1.3.tgz#2c8088842877080d548b728cee16f344cfea69f9"
+  integrity sha512-WAdDU+bIia165t69yPkHXHCQNkozDYTYR3zMIQA1uVANVH2o2yrJmKaG9mdJZG4oViEGTeimpSj74d6h0dEQIA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.26.0"
     "@typescript-eslint/parser" "^5.26.0"
-    eslint-plugin-ckeditor5-rules "^5.1.1"
+    eslint-plugin-ckeditor5-rules "^5.1.3"
     eslint-plugin-mocha "^7.0.0"
     typescript "^4.7.2"
 
-eslint-plugin-ckeditor5-rules@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ckeditor5-rules/-/eslint-plugin-ckeditor5-rules-5.1.1.tgz#087efff9f2e355a538918455024b4494cde7b37e"
-  integrity sha512-wVe+eaeDPP0l0gKbz2JZucxqhRZrMEAUiHrv7YK4/czOBn+I1CvdYmsD8TMyF4opCvuiYdZ7r3rCe06ZvZyrRg==
+eslint-plugin-ckeditor5-rules@^5.1.3:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ckeditor5-rules/-/eslint-plugin-ckeditor5-rules-5.1.3.tgz#d52ad84128ed86ba14642a70df56e56f7be5f8c9"
+  integrity sha512-ismbG4LYLrWpj1kp9bWaIfhXFq0Cl5CJoV5bBRT0NtGyxl0IBaK7a8/nVg1wC+XxE/P+n1qJSTCdzmXST0EsWw==
   dependencies:
-    "@es-joy/jsdoccomment" "^0.36.1"
+    "@es-joy/jsdoccomment" "^0.40.1"
     "@typescript-eslint/parser" "^5.52.0"
     fs-extra "^11.1.1"
     upath "^2.0.1"
@@ -2994,7 +2994,7 @@ esprima@^4.0.0:
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
-esquery@^1.4.0:
+esquery@^1.4.0, esquery@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/esquery/-/esquery-1.5.0.tgz#6ce17738de8577694edd7361c57182ac8cb0db0b"
   integrity sha512-YQLXUplAwJgCydQ78IMJywZCceoqk1oH01OERdSAJc/7U2AylwjhSCLDEtqwg811idIS/9fIU5GjG73IgjKMVg==
@@ -4322,10 +4322,10 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jsdoc-type-pratt-parser@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/jsdoc-type-pratt-parser/-/jsdoc-type-pratt-parser-3.1.0.tgz#a4a56bdc6e82e5865ffd9febc5b1a227ff28e67e"
-  integrity sha512-MgtD0ZiCDk9B+eI73BextfRrVQl0oyzRG8B2BjORts6jbunj4ScKPcyXGTbB6eXL4y9TzxCm6hyeLq/2ASzNdw==
+jsdoc-type-pratt-parser@~4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jsdoc-type-pratt-parser/-/jsdoc-type-pratt-parser-4.0.0.tgz#136f0571a99c184d84ec84662c45c29ceff71114"
+  integrity sha512-YtOli5Cmzy3q4dP26GraSOeAhqecewG04hoO8DY56CH4KJ9Fvv5qKWUCCo3HZob7esJQHCv6/+bnTy72xZZaVQ==
 
 jsesc@^1.3.0:
   version "1.3.0"
@@ -6784,13 +6784,13 @@ stylehacks@^5.1.1:
     browserslist "^4.21.4"
     postcss-selector-parser "^6.0.4"
 
-stylelint-config-ckeditor5@>=5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-config-ckeditor5/-/stylelint-config-ckeditor5-5.1.1.tgz#4222dc46bf7a587ca6608baedf46f822a37ad0da"
-  integrity sha512-Uc5pM/HIFAdlHLZD0T1KxPp22ObIOWgftsMOP325RpX1V6G+/Dd0D+Skl17BzX3h2Mu+JsoZHuEL6SUYrf6Tkg==
+stylelint-config-ckeditor5@>=5.1.2:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/stylelint-config-ckeditor5/-/stylelint-config-ckeditor5-5.1.3.tgz#d3b2af1bb023b5c327996e7db913ae63d0cd4152"
+  integrity sha512-utrya2cCbTvROc7MTOBCPTnzrbTZLa8rOJakExjVyHH5vhUGL7mZR2oJt/RuRE8NwYsnulVNNRjxwUnJolKKRw==
   dependencies:
     stylelint-config-recommended "^3.0.0"
-    stylelint-plugin-ckeditor5-rules "^5.1.1"
+    stylelint-plugin-ckeditor5-rules "^5.1.3"
 
 stylelint-config-ckeditor5@^2.0.1:
   version "2.0.1"
@@ -6804,10 +6804,10 @@ stylelint-config-recommended@^3.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
-stylelint-plugin-ckeditor5-rules@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-plugin-ckeditor5-rules/-/stylelint-plugin-ckeditor5-rules-5.1.1.tgz#9a785e03f844b9e0a180dad1bb6f50cd25803f89"
-  integrity sha512-fB+t9q5kqK1fkBdnVZLxulyKw1DU2Y3YOPmI14s41YRdPhO/sCrnRU2fj4q3MeRK/zYgn/Hvr0qTnLeWkmDpMA==
+stylelint-plugin-ckeditor5-rules@^5.1.3:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/stylelint-plugin-ckeditor5-rules/-/stylelint-plugin-ckeditor5-rules-5.1.3.tgz#8ecd9fff74f22a10d8ebe39e5cc83c24111b5d29"
+  integrity sha512-f0JdyKwpp3X4+ewIrShCuw2CDgr4fJ8jyV4XEOIUI6rgzkvjPoxrPfW3WQpMiR8qpPB4d+KpaSIehgmNsj1B9w==
 
 stylelint@^13.13.1:
   version "13.13.1"
