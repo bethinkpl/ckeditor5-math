@@ -1,7 +1,14 @@
 import { icons } from 'ckeditor5/src/core';
 import {
-	ButtonView, FocusCycler, LabelView, LabeledFieldView,
-	submitHandler, SwitchButtonView, View, ViewCollection, TextareaView
+	ButtonView,
+	createLabeledTextarea,
+	FocusCycler,
+	LabeledFieldView,
+	LabelView,
+	submitHandler,
+	SwitchButtonView,
+	View,
+	ViewCollection
 } from 'ckeditor5/src/ui';
 import { FocusTracker, KeystrokeHandler } from 'ckeditor5/src/utils';
 import { extractDelimiters, hasDelimiters } from '../utils';
@@ -11,29 +18,6 @@ import MathLiveView from './mathliveview';
 import '../../theme/mathform.css';
 
 const { check: checkIcon, cancel: cancelIcon } = icons;
-
-/*
- * copy from
- * https://github.com/ckeditor/ckeditor5/blob/45e28c6030d590d142dbf319b36d9413a6ad6432/packages/ckeditor5-ui/src/labeledfield/utils.ts#L145
- * but enable resize
- */
-const createLabeledTextarea = ( labeledFieldView, viewUid, statusUid ) => {
-	const textareaView = new TextareaView( labeledFieldView.locale );
-	textareaView.set( {
-		id: viewUid,
-		ariaDescribedById: statusUid,
-		resize: 'both'
-	} );
-	textareaView.bind( 'isReadOnly' ).to( labeledFieldView, 'isEnabled', value => !value );
-	textareaView.bind( 'hasError' ).to( labeledFieldView, 'errorText', value => !!value );
-	textareaView.on( 'input', () => {
-		// UX: Make the error text disappear and disable the error indicator as the user
-		// starts fixing the errors.
-		labeledFieldView.errorText = null;
-	} );
-	labeledFieldView.bind( 'isEmpty', 'isFocused', 'placeholder' ).to( textareaView );
-	return textareaView;
-};
 
 export default class MainFormView extends View {
 	constructor(
@@ -191,6 +175,7 @@ export default class MainFormView extends View {
 		// Create equation input
 		const mathInput = new LabeledFieldView( this.locale, createLabeledTextarea );
 		const fieldView = mathInput.fieldView;
+		fieldView.set( 'resize', 'both' );
 		mathInput.infoText = t( 'Insert equation in TeX format.' );
 
 		const onInput = () => {
