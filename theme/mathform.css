@@ -36,6 +36,7 @@
 		padding: 16px;
 
 		& .ck-input {
+			overflow: auto;
 			width: 100%;
 		}
 	}

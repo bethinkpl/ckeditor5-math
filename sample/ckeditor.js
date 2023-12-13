@@ -35,6 +35,9 @@ ClassicEditor
 				macros: {
 					'\\test': '\\mathrel{\\char`≠}'
 				}
+			},
+			mathLiveSettings: {
+				enabled: true
 			}
 		},
 		plugins: [
