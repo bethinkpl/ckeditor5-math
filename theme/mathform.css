@@ -36,9 +36,8 @@
 		padding: 16px;
 
 		& .ck-input {
+			overflow: auto;
 			width: 100%;
-			/* without min-with, balloon-panel doesn't respect width of textarea */
-			min-width: 0;
 		}
 	}
 }
