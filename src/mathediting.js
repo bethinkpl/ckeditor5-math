@@ -52,6 +52,7 @@ export default class MathEditing extends Plugin {
 	_defineSchema() {
 		const schema = this.editor.model.schema;
 		schema.register( 'mathtex-inline', {
+			// Allow mathtex-inline in span in order to make it work with built-in fontSize plugin (and control font size of math from UI)
 			allowIn: 'span',
 			allowWhere: '$text',
 			isInline: true,
@@ -60,6 +61,7 @@ export default class MathEditing extends Plugin {
 		} );
 
 		schema.register( 'mathtex-display', {
+			// Allow mathtex-display in span in order to make it work with built-in fontSize plugin (and control font size of math from UI)
 			allowIn: 'span',
 			allowWhere: '$block',
 			isInline: false,
