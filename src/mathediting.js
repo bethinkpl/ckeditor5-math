@@ -52,17 +52,21 @@ export default class MathEditing extends Plugin {
 	_defineSchema() {
 		const schema = this.editor.model.schema;
 		schema.register( 'mathtex-inline', {
+			// Allow mathtex-inline in span in order to make it work with built-in fontSize plugin (and control font size of math from UI)
+			allowIn: 'span',
 			allowWhere: '$text',
 			isInline: true,
 			isObject: true,
-			allowAttributes: [ 'equation', 'type', 'display' ]
+			allowAttributes: [ 'equation', 'type', 'display', 'fontSize' ]
 		} );
 
 		schema.register( 'mathtex-display', {
+			// Allow mathtex-display in span in order to make it work with built-in fontSize plugin (and control font size of math from UI)
+			allowIn: 'span',
 			allowWhere: '$block',
 			isInline: false,
 			isObject: true,
-			allowAttributes: [ 'equation', 'type', 'display' ]
+			allowAttributes: [ 'equation', 'type', 'display', 'fontSize' ]
 		} );
 	}
 
