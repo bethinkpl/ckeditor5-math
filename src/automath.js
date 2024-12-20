@@ -26,7 +26,7 @@ export default class AutoMath extends Plugin {
 		const editor = this.editor;
 		const modelDocument = editor.model.document;
 
-		this.listenTo( editor.plugins.get( Clipboard ), 'inputTransformation', () => {
+		this.listenTo( editor.plugins.get( 'ClipboardPipeline' ), 'inputTransformation', () => {
 			const firstRange = modelDocument.selection.getFirstRange();
 
 			const leftLivePosition = LivePosition.fromPosition( firstRange.start );
