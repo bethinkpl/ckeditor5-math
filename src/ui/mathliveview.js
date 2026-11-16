@@ -15,7 +15,12 @@ export default class MathLiveView extends View {
 					bind.to( 'input' )
 				],
 				mount: [
-					bind.to( () => this.element.setOptions( this._options ) )
+					bind.to( () => {
+						this.element.setOptions( this._options );
+						// A reconnected field parses its saved value before it gets the options again (it
+						// keeps no function options, e.g. `colorMap`): parse the value again with them.
+						this.element.setValue( this.element.getValue(), { mode: 'math', suppressChangeNotifications: true } );
+					} )
 				],
 				'virtual-keyboard-toggle': [
 					bind.to( () => {
@@ -36,7 +41,9 @@ export default class MathLiveView extends View {
 				return;
 			}
 
-			this.element.setValue( this.value, { format: 'latex', suppressChangeNotifications: true } );
+			// Without `mode`, MathLive inserts in the mode at the caret: with the caret in text
+			// (`\text{…}`, a `\colorbox` body) the formula would turn into text.
+			this.element.setValue( this.value, { format: 'latex', mode: 'math', suppressChangeNotifications: true } );
 		} );
 	}
 }
